@@ -60,11 +60,11 @@ a:hover{text-decoration:underline;}
 
 <div class="content">
   <h1>Contact</h1>
-  <p class="sub">Have a suggestion for a new tool, found a bug, or just want to say hi? Fill in the form — it opens a GitHub issue, which we read and reply to.</p>
+  <p class="sub">Have a suggestion for a new tool, found a bug, or just want to say hi? Fill in the form — it opens your email app with the message ready to send to nxtcraft.tools@gmail.com.</p>
 
   <div class="success-box" id="success-box">
     <div class="icon">✅</div>
-    <p>Opening GitHub in a new tab — submit the issue there and we'll reply on it.</p>
+    <p>Your email app should open with the message — press Send there. Nothing opened? Email us at nxtcraft.tools@gmail.com.</p>
   </div>
 
   <div class="card" id="form-card">
@@ -81,7 +81,7 @@ a:hover{text-decoration:underline;}
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" placeholder="Tell us about a bug, suggest a tool, or just say hi…" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" id="submit-btn">Continue on GitHub →</button>
+      <button type="submit" class="btn btn-primary" id="submit-btn">Send by email →</button>
     </form>
   </div>
 
@@ -116,9 +116,8 @@ a:hover{text-decoration:underline;}
     e.preventDefault();
     const name=document.getElementById('name').value.trim();
     const msg=document.getElementById('message').value.trim();
-    const title='QuickTools feedback'+(name?' from '+name:'');
-    const url='https://github.com/nxtcraft/minitools/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(msg);
-    window.open(url,'_blank','noopener');
+    const subject='QuickTools feedback'+(name?' from '+name:'');
+    window.location.href='mailto:nxtcraft.tools@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(msg);
     document.getElementById('form-card').style.display='none';
     document.getElementById('success-box').classList.add('show');
   });
